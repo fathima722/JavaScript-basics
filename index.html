@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+  <h1>The input element</h1>
+  
+  <form>
+   <label>Enter Temperature in celsius: </label>
+   <input type="text" id="tempC">
+   <button type="button" onclick="tempInFar()">Check</button>
+   <p>Temp in Farenheit: <span id="tempCF"></span> F
+   </p>
+   
+   <label>Enter Temperature in farenheit: </label>
+   <input type="text" id="tempF">
+   <button type="button" onclick="tempInCel()">Check</button>
+   <p>Temp in Celcius: <span id="tempFC"></span> C
+   </p>
+  </form>
+  
+  <form>
+  <label>First number:</label>
+  <input type="text" id="fnum"><br><br>
+  <label>Last number:</label>
+  <input type="text" id="lnum"><br><br>
+  <button type="button" onclick="multiply()">Multiply</button>
+  <button type="button" onclick="divide()">Divide</button>
+  <p>The result is: <span id="pname"></span>
+  </p>
+  </form>
+</body>
+</html>
