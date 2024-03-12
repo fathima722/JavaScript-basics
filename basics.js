@@ -14,8 +14,8 @@ today();
 
 /* ------------------------------------------------------------ */
 //Print contents of current window
-/* var printWindow = () => window.print();
-printWindow();  */
+var printWindow = () => window.print();
+printWindow();
 
 /* ------------------------------------------------------------ */
 // function to get current date in different formats
@@ -52,6 +52,7 @@ for(let i =myArr.length;i>0;i--){
   console.log(poppedValue);
   myArr2.push(poppedValue);
 }
+//instead of all this we can always use reverse() along with join() -> str.split("").reverse().join("")
 console.log(myArr2.join(""));
 
 /* ----------------------------------------------------- */
@@ -188,7 +189,7 @@ console.log(absoluteDiff(380))
 
 /* ----------------------------------------------------- */
 function strings(str){
-	const a = str.split("");
+  const a = str.split("");
   return (a[0] == "P" && a[1]=='y') ? str : "Py"+str;
   //return str.substring(0,2) === "Py" ? str : "Py"+str;
 }
@@ -196,16 +197,131 @@ console.log(strings("thon"))
 
 /* ----------------------------------------------------- */
 function removedChar(str, i){
-	var a = str.split("");
+  var a = str.split("");
   return a[i];
 }
 console.log(removeChar("abcde",3));
 
 /* ----------------------------------------------------- */
 function removeChar(str,index) {
-	const str1 = str.substring(0, index);
-  const str2 = str.substring(index+1, str.length);
+  const str1 = str.substring(0, index);
+  const str2 = str.substring(index+1);
   
   return str1+str2;
 }
 console.log(removeChar("abcde",2));
+
+/* ----------------------------------------------------- */
+function charChange(str) {
+	if(str.length >= 1) {
+  	const str1 = str.charAt(0);
+    const str2 = str.charAt(str.length-1);
+    const str3 = str.substring(1,str.length-1);
+    return str2+str3+str1;
+  }
+  return str;
+}
+console.log(charChange("JavaScript"));
+
+/* ----------------------------------------------------- */
+//first character of the string added to the front and back
+var newString = (str) => {
+	const str1 = str.charAt(0);
+  console.log(str1+str+str1);
+}
+newString("Python");
+
+/* ----------------------------------------------------- */
+var multiple = (num, a, b) => {
+	while(num > 0){
+		if(num % a == 0 || num % b == 0){
+  		console.log("Num is either multiple of 3 or 7");
+  	}
+    else {
+    	console.log("Not a multiple of 3 nor 7");
+    }
+    num = 0;
+	}
+}
+multiple(12,3,7);
+
+/* ----------------------------------------------------- */
+//starts with a certain string
+function checkFirstChars(str) {
+	if(str.startsWith("Java")) return true;
+  return false;
+}
+console.log(checkFirstChars("JavaScript"));
+
+/* ----------------------------------------------------- */
+function searchForSubString(str, searchString){
+	const str_length = 4+searchString.length;
+	const str1 = str.substring(4,str_length);
+  if(str1 == searchString) {
+  	return str.substring(0,4)+str.substring(str_length);
+  }
+  return str;
+}
+console.log(searchForSubString("JavaScriptBasics", "Script"));
+
+/* ----------------------------------------------------- */
+function checkCharExistence(str,index, char) {
+    for(index;index<str.length;index++){
+    	if((index >=1 && index <=3) && (str.charAt(index) == char)){
+    		return true
+    	}
+      return false
+    }
+}
+console.log(checkCharExistence("Python",0,"n"));
+
+/* ----------------------------------------------------- */
+//Find if the last digit of three given numbers are equal
+function lastDigit(num1,num2,num3){
+	const lastDigit1 = Number.isInteger(num1) ? num1 % 10 : num1.toString().slice(-1);
+  const lastDigit2 = Number.isInteger(num2) ? num2 % 10 : num2.toString().slice(-1);
+  const lastDigit3 = Number.isInteger(num3) ? num3 % 10 : num3.toString().slice(-1);
+  return (lastDigit1 == lastDigit2 && lastDigit2 == lastDigit3) ? true : false
+}
+console.log(lastDigit(12,32,45))
+
+/* ----------------------------------------------------- */
+function caseConversion(str){
+	if(str.length <= 3) return str.toUpperCase();
+  else {
+  	const str1 = str.substring(0,3);
+    return str1.toLowerCase()+str.substring(3);
+  }
+}
+console.log(caseConversion("c++"));
+console.log(caseConversion("JavaScript"));
+
+/* ----------------------------------------------------- */
+function studentGrades(totalMarks,finalExam) {
+let grade = "";
+	if(totalMarks >= 89 && totalMarks <= 100 && finalExam) grade = "A+";
+  return (grade == "A+") ? true : false;
+}
+console.log(studentGrades(95));
+console.log(studentGrades(95,true));
+
+/* ----------------------------------------------------- */
+//Assign the next character in the alphabet to each character of str
+(function(str="efgh") {
+  const alphabet = [...'abcdefghijklmnopqrstuvwxyz'];
+	console.log(alphabet);
+  const strArray = [...str]
+  console.log(strArray);
+  for(var i=0;i<strArray.length;){
+  	for(var j=0;j<alphabet.length;){
+    	if(strArray[i] == alphabet[j]) {
+      	strArray[i] = alphabet[j+1];
+        i++;
+      }
+      j++;
+    }
+  }
+  console.log(strArray);
+})();
+
+/* ----------------------------------------------------- */
